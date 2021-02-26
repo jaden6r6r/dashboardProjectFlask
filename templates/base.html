@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="static/index.css" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+    <!--Nav bar inserted-->
+    {% block nav %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{{ url_for('hello_world') }}">Jaden Walker</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Monzo API</a>
+              <a class="nav-link" href="#">Financials</a>
+              <!--If the flask log in is True, present new items in the nav bar-->
+              {% if session['oauth_token'] %}
+              <a class="nav-link" href="#">Edit</a>
+              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+              {% endif%}
+            </div>
+          </div>
+        </div>
+      </nav>
+    {% endblock %}
+    <!--Begin main section-->
+    {% block content %}
+    {% endblock %}
+</body>
