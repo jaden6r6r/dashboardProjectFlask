@@ -84,9 +84,10 @@ def callback():
     # the token and show how this is done from a persisted token
     # in /profile.
     session['oauth_token'] = token
-    r = github.get('https://api.github.com/orgs/ultimateGroup')
-    print(r.json())
-
+    r = github.get('https://api.github.com/user')
+    r = r.json()
+    session['userName'] = r['login']
+    # print(session['userName'])
     return redirect(url_for('hello_world'))
 
 @app.route("/logout")

@@ -12,7 +12,9 @@
 </head>
 {% block content %}
   <div id="mainSection">
-
+    {% if session['userName'] == 'jaden6r6r'%}
+      <h1>{{session['userName']}}</h1>
+    {% endif %}
   </div>
 {% endblock %}
 </html>
