@@ -90,8 +90,9 @@ def callback():
     # print(session['userName'])
     return redirect(url_for('hello_world'))
 
+#handles the clearing of the session cookie data. Then redirects back to blank page.
 @app.route("/logout")
 def logout():
     if session['oauth_token']:
-        session.pop('oauth_token')
+        session.clear()
         return redirect(url_for('hello_world'))
