@@ -50,6 +50,9 @@ class Entry(flask_db.Model):
 def hello_world():
     return render_template('index.html')
 
+@app.route("/home")
+def blog():
+    return render_template('blog.html')
 
 @app.route("/login")
 def demo():
